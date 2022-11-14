@@ -15,7 +15,7 @@ public class GenerateGradeReport {
     School school = School.getInstance();
     public static final String TITLE = "수강생 학점\t\t\n";
     public static final String HEADER = "이름\t|\t학번\t\t|\t중정과목\t|\t점수\n";
-    public static final String LINE = "----------------------------------------";
+    public static final String LINE = "--------------------------------------------\n";
     private StringBuffer buffer = new StringBuffer();    // 임시 저장 공간
 
     public String getReport(){
@@ -49,7 +49,7 @@ public class GenerateGradeReport {
             buffer.append("\t|\t");
             buffer.append(student.getMajorSubject().getSubjectName());
             buffer.append("\t|\t");
-            buffer.append(student.getScoreList());
+//            buffer.append(student.getScoreList());
 
             ArrayList<Score> scoreList = student.getScoreList();
             int majorId = student.getMajorSubject().getSubjectId();
