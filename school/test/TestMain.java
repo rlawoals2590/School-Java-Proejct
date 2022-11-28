@@ -11,6 +11,7 @@ public class TestMain {
     private School school = School.getInstance();
     private Subject korean;
     private Subject math;
+    private Subject english;
     private GenerateGradeReport gradeReport = new GenerateGradeReport();
 
     public static void main(String[] args) {
@@ -25,15 +26,17 @@ public class TestMain {
     public void createSubject() {
         korean = new Subject(Define.KOREAN, "국어");
         math = new Subject(Define.MATH, "수학");
+        english = new Subject(Define.ENGLISH, "영어");
 
         school.addSubject(korean);
         school.addSubject(math);
+        school.addSubject(english);
     }
 
     public void createStudent() {
         Student student1 = new Student(221213, "안성원", korean);
         Student student2 = new Student(221518, "오태훈", math);
-        Student student3 = new Student(221230, "이동호", korean);
+        Student student3 = new Student(221230, "이동호", english);
         Student student4 = new Student(221255, "조성욱", korean);
         Student student5 = new Student(221590, "최태평", math);
 
@@ -55,6 +58,12 @@ public class TestMain {
         math.register(student4);
         math.register(student5);
 
+        english.register(student1);
+        english.register(student2);
+        english.register(student3);
+        english.register(student4);
+        english.register(student5);
+
 //        Score score;
 //        score = new Score(student1.getStudentId(), korean, 95);
 //        student1.addSubjectScore(score);
@@ -62,18 +71,23 @@ public class TestMain {
 
         addScoreForStudent(student1, korean, 95);
         addScoreForStudent(student1, math, 56);
+        addScoreForStudent(student1, english, 80);
 
         addScoreForStudent(student2, korean, 95);
         addScoreForStudent(student2, math, 95);
+        addScoreForStudent(student2, english, 60);
 
         addScoreForStudent(student3, korean, 100);
         addScoreForStudent(student3, math, 88);
+        addScoreForStudent(student3, english, 54);
 
         addScoreForStudent(student4, korean, 89);
         addScoreForStudent(student4, math, 95);
+        addScoreForStudent(student4, english, 60);
 
         addScoreForStudent(student5, korean, 85);
         addScoreForStudent(student5, math, 56);
+        addScoreForStudent(student5, english, 98);
     }
 
     public void addScoreForStudent(Student student, Subject subject, int point) {
